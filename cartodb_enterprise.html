@@ -54,12 +54,12 @@
 
 
 //Google Analytics connection
-map.on('click', function(e) {ga('send', 'event', 'Maps', 'click', e.latlng);});
-map.on('dblclick', function(e) {ga('send', 'event', 'Maps', 'dblclick', e.latlng);});
-map.on('load', function(e) {ga('send', 'event', 'Maps', 'load');});
-map.on('zoomend', function(e) {ga('send', 'event', 'Maps', 'zoomend');});
-map.on('dragend', function(e) {ga('send', 'event', 'Maps', 'dragend');});
-map.on('locationfound', function(e) {ga('send', 'event', 'Maps', 'locationfound', e.latlng);});
+mymap.on('click', function(e) {ga('send', 'event', 'Maps', 'click', e.latlng);});
+mymap.on('dblclick', function(e) {ga('send', 'event', 'Maps', 'dblclick', e.latlng);});
+mymap.on('load', function(e) {ga('send', 'event', 'Maps', 'load');});
+mymap.on('zoomend', function(e) {ga('send', 'event', 'Maps', 'zoomend');});
+mymap.on('dragend', function(e) {ga('send', 'event', 'Maps', 'dragend');});
+mymap.on('locationfound', function(e) {ga('send', 'event', 'Maps', 'locationfound', e.latlng);});
 
 
 
