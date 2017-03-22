@@ -53,6 +53,16 @@
 		}).addTo(mymap);
 
 
+//Google Analytics connection
+map.on('click', function(e) {ga('send', 'event', 'Maps', 'click', e.latlng);});
+map.on('dblclick', function(e) {ga('send', 'event', 'Maps', 'dblclick', e.latlng);});
+map.on('load', function(e) {ga('send', 'event', 'Maps', 'load');});
+map.on('zoomend', function(e) {ga('send', 'event', 'Maps', 'zoomend');});
+map.on('dragend', function(e) {ga('send', 'event', 'Maps', 'dragend');});
+map.on('locationfound', function(e) {ga('send', 'event', 'Maps', 'locationfound', e.latlng);});
+
+
+
 	</script>
 </body>
 </html>
