@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2/leaflet.css">
+	<style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+	<div id="map" style="width: 100%; height: 100%"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2/leaflet.js"></script>
+	<script>
+	
+	var parseQueryString = function() {
+      var str = document.location.href;
+      var objURL = {};
+      str.replace(
+          new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+          function( $0, $1, $2, $3 ){
+              objURL[ $1 ] = $3;
+          }
+      );
+      return objURL;
+  };
+  var params = parseQueryString();
+  if (isNaN(params["lat"])){latitude=40.706213526877455;}else{latitude=params["lat"];}
+  if (isNaN(params["lon"])) {longitude=-74.0044641494751;}else{longitude=params["lon"];}
+  if (isNaN(params["z"])) {z=15;}else{z=params["z"];}
+  
+		var mymap = L.map('map').setView([latitude,longitude ], z);
+
+		L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+			maxZoom: 20,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+		}).addTo(mymap);
+
+
+	</script>
+</body>
+</html>

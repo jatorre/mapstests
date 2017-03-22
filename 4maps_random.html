@@ -1,0 +1,36 @@
+<HTML> 
+  <script type="text/javascript">
+     function getRandomInRange(from, to, fixed) {
+         return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
+     }
+
+     window.onload = init;
+
+     function init() {
+       //Find a location within a populated place
+      var script = document.createElement('script');
+      script.src = 'https://jatorre.carto.com/api/v1/sql?callback=asd&q=SELECT%20ST_AsGeoJSON(ST_PointOnSurface(the_geom))::json%20as%20geom%20FROM%20ne_50m_urban_areas%20order%20by%20random()%20limit%201'
+      document.getElementsByTagName('head')[0].appendChild(script);      
+     }
+     
+     function asd(data) {
+        var latitude= data.rows[0].geom.coordinates[1];
+        var longitude= data.rows[0].geom.coordinates[0];
+        var zoom= getRandomInRange(12, 18, 0);
+        
+         document.getElementById('map1').src = "nutiteq_raster.html?lat="+latitude+"&lon="+longitude+"&z="+zoom;
+         document.getElementById('map2').src = "gmaps.html?lat="+latitude+"&lon="+longitude+"&z="+zoom;
+         document.getElementById('map3').src = "pb.html?lat="+latitude+"&lon="+longitude+"&z="+zoom;
+         document.getElementById('map4').src = "mapzen.html?lat="+latitude+"&lon="+longitude+"&z="+zoom;
+     }
+
+   </script>
+ <FRAMESET ROWS="50%, *" COLS="*, 50%"> 
+   <FRAME id="map1" src=""> 
+   <FRAME id="map2" src=""> 
+   <FRAME id="map3" src=""> 
+   <FRAME id="map4" src=""> 
+ </FRAMESET> 
+ 
+
+</HTML> 

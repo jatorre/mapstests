@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        
+        var parseQueryString = function() {
+            var str = document.location.href;
+            var objURL = {};
+            str.replace(
+                new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+                function( $0, $1, $2, $3 ){
+                    objURL[ $1 ] = $3;
+                }
+            );
+            return objURL;
+        };
+        var params = parseQueryString();
+        if (isNaN(params["lat"])){latitude=40.706213526877455;}else{latitude=params["lat"];}
+        if (isNaN(params["lon"])) {longitude=-74.0044641494751;}else{longitude=params["lon"];}
+        if (isNaN(params["z"])) {z=15;}else{z=params["z"];}
+      	
+        
+        
+        
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+          zoom: parseFloat(z)
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGEDKk7NJf-b4_rafNGrMLO1C6sdhmuag&callback=initMap"
+    async defer></script>
+  </body>
+</html>

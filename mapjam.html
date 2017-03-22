@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">    
+    <!-- Add MapJam .js/.css and consolidated resources (Leaflet version 0 and MapboxGL libraries) -->
+    <script src="https://res.mapjam.com/lib/0.9/mapjam.js"></script>
+    <link href="https://res.mapjam.com/lib/0.9/mapjam.css" rel="stylesheet" />
+    <script src="https://res.mapjam.com/lib/0.9/mapjam-resources-L0.js"></script>
+    <link href="https://res.mapjam.com/lib/0.9/mapjam-resources-L0.css" rel="stylesheet" />
+    <style type='text/css'>
+        /* add css for map */
+        #mapDiv {
+            position:absolute; top:0; bottom:0; width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id='mapDiv'></div>
+<script>
+    
+    //** add MapJam map
+    var map = new MJ.map('mapDiv', {
+        centerMap: [40.706213526877455, -74.0044641494751],
+        zoom: 15,
+        accessToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MmVhZmJjMWM4ZjgyMjAyMDAwMDBjMDgiLCJpc3MiOiJtYXBqYW0uY29tIn0.4SXArxVep8W3CcHvifXVXVD6qh3m52HGOHp6mosChes',
+        markers:[]
+    });
+</script>
+</body>
+</html>
